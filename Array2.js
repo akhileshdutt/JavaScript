@@ -123,8 +123,8 @@ rl.question("Enter array: ", (input)=>{
 
    for (let i = 0; i < arr.length; i++) {
         if(arr[i]>max){
-            max = arr[i];
             smax = max;
+            max = arr[i];
         }
         else if(arr[i]!= max && arr[i]>smax){
             smax = arr[i];
