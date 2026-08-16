@@ -41,7 +41,7 @@
 // console.log(selectionSort([10,8,24,1,44,34]))
 
 // time complexity : O(N^2)
-// space complexity : O(N^2)
+// space complexity : O(1)
 
 //------------------------------------------------------------------------------
 // Insertion sort : here we comapre just two elemnt at once, like 1st and 2nd element and comapre the then exhange the value, or jab tk smaller value ekdm aage nhi ho jati tab tk vo loop chalta rhega
