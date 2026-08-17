@@ -99,31 +99,77 @@
 //------------------------------------------------------------------------------------------
 //Merge Sort: we divide the big array in 2 smaller one and sort them, and it gose until every elemn is alone, then we comapre each nd every element. 
 
-function mergeSort(arr){
-    //base case
-    if(arr.length<=1)return arr;
-    let mid = Math.floor(arr.length/2);     // floor makes the round off value
+// function mergeSort(arr){
+//     //base case
+//     if(arr.length<=1)return arr;
+//     let mid = Math.floor(arr.length/2);     // floor makes the round off value
 
-    let left = mergeSort(arr.slice(0, mid));
-    let right = mergeSort(arr.slice(mid));    // if we do not mention the range, it will go till end.
-    // now this will spead each and every element.
+//     let left = mergeSort(arr.slice(0, mid));
+//     let right = mergeSort(arr.slice(mid));    // if we do not mention the range, it will go till end.
+//     // now this will spead each and every element.
 
-    return merge(left, right);
-}
-function merge(left, right){
-    let sortedArr =[];
+//     return merge(left, right);
+// }
+// function merge(left, right){
+//     let sortedArr =[];
 
-    while(left.length && right.length){
-        if(left[0]<right[0]){
-            sortedArr.push(left.shift());   // remove element from left array and add it to shortedArr
-        }else{
-            sortedArr.push(right.shift());    // remove element from right array and add it to shortedArr
+//     while(left.length && right.length){
+//         if(left[0]<right[0]){
+//             sortedArr.push(left.shift());   // remove element from left array and add it to shortedArr
+//         }else{
+//             sortedArr.push(right.shift());    // remove element from right array and add it to shortedArr
+//         }
+//     }
+//     return [...sortedArr, ...left, ...right];
+// }
+
+// console.log(mergeSort([10,8,24,1,44,34]))
+
+// // time complexity : O(N logN)
+// // space complexity: O(n) 
+
+
+//---------------------------------quick sort------------------------------------------------------------------
+
+const readline = require("readline");
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
+
+rl.question("Enter array: ", (input)=>{
+    const arr = input.split(" ").map(Number);
+
+    console.log(Qsort(arr));
+
+    rl.close();
+})
+
+function Qsort(arr){
+
+    if(arr.length<=1){
+        return arr;
+    }
+    let n = arr.length;
+
+    let pivot = arr[0];
+    let left = [];
+    let right = [];
+
+    for(let i=1; i<n; i++){
+        if(arr[i]<pivot){
+            left.push(arr[i]);
+        }
+        else{
+            right.push(arr[i]);
         }
     }
-    return [...sortedArr, ...left, ...right];
-}
+    left=Qsort(left);
+    right=Qsort(right);
 
-console.log(mergeSort([10,8,24,1,44,34]))
+    arr = [...left, pivot, ...right];
 
-// time complexity : O(N logN)
-// space complexity: O(n) 
+    return arr;
+
+}   
+
