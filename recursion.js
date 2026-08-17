@@ -80,8 +80,16 @@ function fibonacci(n){
 }
 console.log(fibonacci(7));
 
-// agar ham dhyaan se dekhe the uper wale logic me ham neeche se uper aate h, jaise ham vaha pehle ek array bnate h fir usme add krte rehte h
-// lakin yaha pe ham pehle main value (n) check krte h ki ky vo 1 ke barabar aai ya usse chote yani 0 aai ki nhi, agr aisa nhi h to ham n-1 and n-2 krte h, 
-
+// agar ham dhyaan se dekhe to uper wale logic me ham neeche se uper aate hain,
+// jaise ham vaha pehle ek array banate hain fir usme add karte rehte hain.
+// lekin yaha pe ham pehle main value (n) check karte hain ki kya vo 1 ke barabar
+// aai ya usse choti yani 0 aai ki nahi. Agar aisa nahi hai to ham n-1 aur n-2 karte hain,
+// aur recursively function ko call karte hain. Ye process tab tak chalta hai jab tak
+// ham base condition tak nahi pahunch jaate. Jaise hi n 1 ya 0 hota hai, function
+// value return karta hai. Uske baad recursion neeche se uper aana start karta hai aur
+// har previous function call ko uski value milti hai. Isi returned value ka use karke
+// ham n-1 aur n-2 ko add karte hain aur final answer nikalte hain.
+// Matlab recursion me pehle calls neeche jaati hain aur base case tak pahunchti hain,
+// phir values return hote hue neeche se uper aati hain aur final result banta hai.
 
 
