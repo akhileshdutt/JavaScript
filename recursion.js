@@ -78,7 +78,7 @@ function fibonacci(n){
     if(n<=1) return n;
     return fibonacci(n-1) + fibonacci(n-2);
 }
-console.log(fibonacci(7));
+// console.log(fibonacci(7));
 
 // agar ham dhyaan se dekhe to uper wale logic me ham neeche se uper aate hain,
 // jaise ham vaha pehle ek array banate hain fir usme add karte rehte hain.
@@ -92,4 +92,26 @@ console.log(fibonacci(7));
 // Matlab recursion me pehle calls neeche jaati hain aur base case tak pahunchti hain,
 // phir values return hote hue neeche se uper aati hain aur final result banta hai.
 
+// subsets (backtracking algo using recursion)
 
+// input: [1,2,3].   # output: [[],[1],[2],[3],[1,2],[2,3],[1,3],[1,2,3]]
+
+    
+function subset(arr){
+    let result = [];
+    let temp =[];
+
+    function recursiveSS(arr,i){
+        if(i==arr.length){
+            return result.push([...temp]);
+        }
+
+        temp.push(arr[i]);
+        recursiveSS(arr, i+1);
+        temp.pop();
+        recursiveSS(arr, i+1);
+    }
+    recursiveSS(arr,0);
+    return result;
+}
+console.log(subset([1,2,3]));
